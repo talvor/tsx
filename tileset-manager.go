@@ -2,6 +2,7 @@ package tsx
 
 import (
 	"errors"
+	"fmt"
 	"os"
 	"path/filepath"
 )
@@ -50,6 +51,12 @@ func (tm *TilesetManager) AddTileset(source string) error {
 	tm.Tilesets[ts.Name] = ts
 
 	return nil
+}
+
+func (tm *TilesetManager) DebugPrintTilesets() {
+	for name := range tm.Tilesets {
+		fmt.Println(name)
+	}
 }
 
 func NewTilesetManager(baseDir string) *TilesetManager {
