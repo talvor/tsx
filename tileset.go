@@ -59,14 +59,12 @@ func (ts *Tileset) GetTileByType(tileType string) (*Tile, error) {
 	return nil, ErrTileTypeNotFound
 }
 
-func (ts *Tileset) decodeImage() error {
+func (ts *Tileset) decodeImage() {
 	if ts.Image.Source == "" {
-		return nil
+		return
 	}
 
 	ts.Image.Source = path.Join(ts.baseDir, ts.Image.Source)
-
-	return nil
 }
 
 type Image struct {
